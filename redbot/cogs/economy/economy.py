@@ -24,20 +24,19 @@ NUM_ENC = "\N{COMBINING ENCLOSING KEYCAP}"
 class SMReel(Enum):
     cherries = "\N{CHERRIES}"
     cookie = "\N{COOKIE}"
-    two = "\N{DIGIT TWO}" + NUM_ENC
     flc = "\N{FOUR LEAF CLOVER}"
+    shibe = "<:shibe:265632173040730112>"
     cyclone = "\N{CYCLONE}"
     sunflower = "\N{SUNFLOWER}"
-    six = "\N{DIGIT SIX}" + NUM_ENC
     mushroom = "\N{MUSHROOM}"
     heart = "\N{HEAVY BLACK HEART}"
     snowflake = "\N{SNOWFLAKE}"
 
 
 PAYOUTS = {
-    (SMReel.two, SMReel.two, SMReel.six): {
+    (SMReel.shibe, SMReel.shibe, SMReel.shibe): {
         "payout": lambda x: x * 2500 + x,
-        "phrase": _("JACKPOT! 226! Your bid has been multiplied * 2500!"),
+        "phrase": _("JACKPOT! MUCH WOW! Your bid has been multiplied * 2500!"),
     },
     (SMReel.flc, SMReel.flc, SMReel.flc): {
         "payout": lambda x: x + 1000,
@@ -47,9 +46,9 @@ PAYOUTS = {
         "payout": lambda x: x + 800,
         "phrase": _("Three cherries! +800!"),
     },
-    (SMReel.two, SMReel.six): {
+    (SMReel.shibe, SMReel.shibe): {
         "payout": lambda x: x * 4 + x,
-        "phrase": _("2 6! Your bid has been multiplied * 4!"),
+        "phrase": _("2 Shibes! Your bid has been multiplied * 4!"),
     },
     (SMReel.cherries, SMReel.cherries): {
         "payout": lambda x: x * 3 + x,
@@ -64,10 +63,10 @@ PAYOUTS = {
 
 SLOT_PAYOUTS_MSG = _(
     "Slot machine payouts:\n"
-    "{two.value} {two.value} {six.value} Bet * 2500\n"
+    "{shibe.value} {shibe.value} {shibe.value} Bet * 2500\n"
     "{flc.value} {flc.value} {flc.value} +1000\n"
     "{cherries.value} {cherries.value} {cherries.value} +800\n"
-    "{two.value} {six.value} Bet * 4\n"
+    "{shibe.value} {shibe.value} Bet * 4\n"
     "{cherries.value} {cherries.value} Bet * 3\n\n"
     "Three symbols: +500\n"
     "Two symbols: Bet * 2"
